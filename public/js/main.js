@@ -118,6 +118,11 @@ const ajouterLigne = () => {
 // Permet d'afficher le calcul a l'ecran
 const afficherEcran = text => document.getElementById('res').value = text
 
+let display = document.querySelector('#res')
+// supprimer un a un les chiffre
+const supEcran = () => {
+  display.value = display.value.substring(0, display.value.length -1)
+}
 
 // Permet de raffraichir le calcul a l'ecran apres l'operation effectuer et ainsi pouvoir effectuer un autre calcul
 const rafraichirEcran = () => {
@@ -150,7 +155,6 @@ const rafraichirEcran = () => {
     text += ` = ${total}`
     afficherEcran(text)
 }
-
 
 document.addEventListener('keydown', e => {
     const key = e.key
@@ -207,4 +211,52 @@ document.addEventListener('keydown', e => {
         saisirDecimale()
         break
     }
-  })
+})
+
+
+// ecoute des operation et numero et liaison avec leur fonctions adequate
+let addition = document.querySelector('#plus')
+addition.addEventListener('click', () => saisirOperation('+'))
+
+let soustraction = document.querySelector('#moins')
+soustraction.addEventListener('click', () => saisirOperation('-'))
+
+let multiplication = document.querySelector('#fois')
+multiplication.addEventListener('click', () => saisirOperation('x'))
+
+let division = document.querySelector('#divise')
+division.addEventListener('click', () => saisirOperation('/'))
+
+let zero = document.querySelector('#zero')
+zero.addEventListener('click', () => saisirNombre(0))
+let un = document.querySelector('#un')
+un.addEventListener('click', () => saisirNombre(1))
+let deux = document.querySelector('#deux')
+deux.addEventListener('click', () => saisirNombre(2))
+let trois = document.querySelector('#trois')
+trois.addEventListener('click', () => saisirNombre(3))
+let quatre = document.querySelector('#quatre')
+quatre.addEventListener('click', () => saisirNombre(4))
+let cinq = document.querySelector('#cinq')
+cinq.addEventListener('click', () => saisirNombre(5))
+let six = document.querySelector('#six')
+six.addEventListener('click', () => saisirNombre(6))
+let sept = document.querySelector('#sept')
+sept.addEventListener('click', () => saisirNombre(7))
+let huit = document.querySelector('#huit')
+huit.addEventListener('click', () => saisirNombre(8))
+let neuf = document.querySelector('#neuf')
+neuf.addEventListener('click', () => saisirNombre(9))
+
+let virgule = document.querySelector('#virgule')
+virgule.addEventListener('click', () => saisirDecimale())
+
+let egal = document.querySelector('#egal')
+egal.addEventListener('click', () => calculerTotal())
+
+let del = document.querySelector('#del')
+del.addEventListener('click', () => rafraichirEcran())
+
+let ac = document.querySelector('#ac')
+ac.addEventListener('click', () => supEcran())
+
