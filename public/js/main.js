@@ -150,3 +150,61 @@ const rafraichirEcran = () => {
     text += ` = ${total}`
     afficherEcran(text)
 }
+
+
+document.addEventListener('keydown', e => {
+    const key = e.key
+  
+    switch (key) {
+      case '0':
+        saisirNombre(0)
+        break
+      case '1':
+        saisirNombre(1)
+        break
+      case '2':
+        saisirNombre(2)
+        break
+      case '3':
+        saisirNombre(3)
+        break
+      case '4':
+        saisirNombre(4)
+        break
+      case '5':
+        saisirNombre(5)
+        break
+      case '6':
+        saisirNombre(6)
+        break
+      case '7':
+        saisirNombre(7)
+        break
+      case '8':
+        saisirNombre(8)
+        break
+      case '9':
+        saisirNombre(9)
+        break
+      case '+':
+        saisirOperation('+')
+        break
+      case '-':
+        saisirOperation('-')
+        break
+      case '*':
+        saisirOperation('x')
+        break
+      case '/':
+        saisirOperation('/')
+        e.preventDefault()
+        break
+      case 'Enter':
+        calculerTotal()
+        break
+      case '.':
+      case ',':
+        saisirDecimale()
+        break
+    }
+  })
