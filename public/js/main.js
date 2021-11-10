@@ -106,3 +106,47 @@ const calculerTotal = () => {
     rafraichirEcran()
     ajouterLigne()
 }
+
+const ajouterLigne = () => {
+    // Réinitialise les variables
+    nombre1 = null
+    operation = null
+    nombre2 = null
+    total = null
+}
+
+// Permet d'afficher le calcul a l'ecran
+const afficherEcran = text => document.getElementById('res').value = text
+
+
+// Permet de raffraichir le calcul a l'ecran apres l'operation effectuer et ainsi pouvoir effectuer un autre calcul
+const rafraichirEcran = () => {
+    let text = ''
+    // Si le nombre de gauche n'est pas défini
+    if (nombre1 == null) {
+      // Réinitialiser l'écran et s'arrêter
+      afficherEcran(text)
+      return
+    }
+    // ... sinon, rajouter le nombre au calcul
+    text += nombre1
+    // Si l'opération n'est pas définie
+    if (operation == null) {
+      // Afficher la partie du texte connue et s'arrêter
+      afficherEcran(text)
+      return
+    }
+    // ... sinon, rajouter l'opération au calcul
+    text += ` ${operation} `
+    if (nombre2 == null) {
+      afficherEcran(text)
+      return
+    }
+    text += nombre2
+    if (total == null) {
+      afficherEcran(text)
+      return
+    }
+    text += ` = ${total}`
+    afficherEcran(text)
+}
